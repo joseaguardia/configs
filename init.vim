@@ -6,11 +6,17 @@ set shiftwidth=2            " width for autoindents
 "inoremap <TAB> <C-T>        " TAB para tabular 2 espacios
 "inoremap <S-TAB> <C-D>      " Shift + TAB para quitar el tabulado
 
+
+colorscheme default
 set nocompatible            " disable compatibility to old-time vi
-let mapleader=","           " cambiar el <Leader> de \ a , por ejemplo para ,cc (comentar)
-set showmatch               " show matching 
+let mapleader=" "           " cambiar el <Leader> de \ a , por ejemplo para , o espacio
+set showmatch    c           " show matching 
 set ignorecase              " case insensitive 
 set hlsearch                " highlight search 
+syntax match LineNr "\<\d\+\>" contained
+highlight LineNr ctermfg=darkgray ctermbg=236 "guifg=green
+highlight CursorLine cterm=NONE ctermbg=236 guibg=NONE
+highlight clear CursorLineNr
 set incsearch               " incremental search
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
@@ -41,7 +47,7 @@ call plug#begin('~/.vim/plugged')
   "Plug 'ervandew/supertab'              "Autocompletado con TAB de lo ya escrito
   Plug 'nvim-tree/nvim-web-devicons'    "Fuente: https://github.com/vorillaz/devicons/archive/master.zip
   Plug 'RRethy/vim-illuminate'          "Iluminar palabra bajo el cursor
-  Plug 'preservim/nerdcommenter'        "Comentador automático según el lenguaje con 3,cc comenta 3 líneas. Con ,c[espacio] cambia de estado
+  Plug 'preservim/nerdcommenter'        "Comentador automático según el lenguaje con 3[espacio]cc comenta 3 líneas. Con [espacio]c[espacio] cambia de estado
   
   
 
@@ -60,9 +66,9 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Configuración de Gruvbox
-set background=dark
-let g:gruvbox_material_background='medium'
-colorscheme gruvbox-material
+"set background=dark
+"let g:gruvbox_material_background='medium'
+"colorscheme gruvbox-material
 
 " Configuración de LSP
 "lua << EOF
